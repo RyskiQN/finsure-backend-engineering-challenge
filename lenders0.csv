@@ -1,0 +1,18 @@
+Name, Code, Upfront Commission Rate, Trial Commission Rate, active
+ABC Bank,ABC,0.65,0.15,TRUE
+DEF Finance,DEF,0.70,0.20,FALSE
+GHI Mortgage,GHI,0.60,0.18,TRUE
+JKL Lending,JKL,0.55,0.17,TRUE
+MNO Credit,MNO,0.75,0.22,FALSE
+PQR Capital,PQR,0.80,0.25,TRUE
+STU Loan,STU,0.50,0.10,FALSE
+VWX Bank,VWX,0.68,0.19,TRUE
+YZA Finance,YZA,0.72,0.21,FALSE
+BCD Mortgage,BCD,0.62,0.16,TRUE
+EFG Lending,EFG,0.57,0.14,TRUE
+HIJ Credit,HIJ,0.77,0.23,FALSE
+KLM Capital,KLM,0.82,0.26,TRUE
+NOP Loan,NOP,0.52,0.12,FALSE
+QRS Bank,QRS,0.66,0.18,TRUE
+TUV Finance,TUV,0.74,0.24,FALSE
+WXY Mortgage,WXY,0.64,0.20,TRUE

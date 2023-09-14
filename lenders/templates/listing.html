@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+</p>
+<section class="row container bg-white shadow-3 m-t-2 p1">
+    <form method="get" class="form django-form">
+        {{ filter.form }}
+        <button type="submit">Refresh</button>
+        <br/>
+    </form>
+</section>
+<p>
+    <br/></p>
+<table>
+    <tr>
+        <th>Lender Name,</th>
+        <th>Code,</th>
+        <th>Upfront Commission Rate,</th>
+        <th>Trial Commission Rate,</th>
+        <th>Active,</th>
+    </tr>
+    {% for lender in paginator_filter %}
+    <tr>
+            <td><p><a href="{% url 'posting' %}{{ lender.id }}">{{ lender.id }},</a></p></td>
+            <td>{{ lender.name }},</td>
+            <td>{{ lender.code }},</td>
+            <td>{{ lender.upfront_com }},</td>
+            <td>{{ lender.trial_com }},</td>
+            <td>{{ lender.active }},</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<p><br/>
+</p>
+<div class="row">
+    <div class="col-md-12">
+        {% if paginator_filter.has_other_pages %}</p>
+        <ul class="pagination">
+            {% if paginator_filter.has_previous %}</p>
+            <li class="page-item">
+                <a href="?page={{paginator_filter.previous_page_number}}" class="page-link">«</a>
+            </li>
+            <p> {% else%}</p>
+            <li class="page-item disabled"></li>
+            <p><a class="page-link">«</a><br/>
+                {% endif %}<br/>
+                {% for i in paginator_filter.paginator.page_range %}<br/>
+                {% if paginator_filter.paginator.page_range %}<br/>
+                {% if paginator_filter.number == i%}</p>
+            <li class="page-item active"><a class="page-link">{{i}}</a></li>
+            <p> {% else %}</p>
+            <li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+            <p> {% endif%}<br/>
+                {% endif %}<br/>
+                {% endfor %}<br/>
+                {% if paginator_filter.has_next %}</p>
+            <li class="page-item">
+                <a href="?page={{paginator_filter.next_page_number}}" class="page-link">»</a>
+            </li>
+            <p> {% else%}</p>
+            <li class="page-item disabled"></li>
+            <p><a class="page-link">»</a><br/>
+                {% endif %}
+        </ul>
+        <p> {% endif %}
+        </p></div>
+    </p></div>
+<p>
+    {% endblock %}
