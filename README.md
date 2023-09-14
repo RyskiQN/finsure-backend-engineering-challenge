@@ -23,11 +23,12 @@ endpoints that provide the following functionality:
 - [X] Get a specific Lender
 - [X] Update a specific Lender
 - [X] Delete a specific Lender
-- [ ] Bulk upload Lenders in CSV format
-- [ ] Download Lenders in CSV format
+- [X] Bulk upload Lenders in CSV format
+- [X] Download Lenders in CSV format
 
 # Additional Info
 Below are the attributes of a control. All attributes are required.
+
 | Name                   | Description                                                     |
 |-----------------------:|:----------------------------------------------------------------|
 |Name                    | Name of the lender                                              |

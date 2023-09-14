@@ -5,7 +5,9 @@
 <section class="row container bg-white shadow-3 m-t-2 p1">
     <form method="get" class="form django-form">
         {{ filter.form.as_p }}
-        <button type="submit">Refresh</button>
+        <button type="submit">Refresh</button> &nbsp &nbsp
+        <a href="{% url 'create' %}"> + Add </a> &nbsp &nbsp &nbsp &nbsp
+        <a href="{% url 'download' %}"> ▼ Download </a>
         <br/>
     </form>
 </section>

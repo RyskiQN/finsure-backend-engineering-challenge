@@ -36,3 +36,7 @@ class UpdateLenderForm(forms.ModelForm):
         self.fields['active'].widget = forms.CheckboxInput(attrs={'default': instance.active if instance else ''})
 
     helper = helper.FormHelper
+
+
+class UploadLendersForm(forms.Form):
+    csv_file = forms.FileField()

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <button type="submit">Add</button><a href="{% url 'list' %}"> Cancel </a>
+    </p>
+    <p><a href="{% url 'upload' %}"> Upload CSV File </a></p>
+</form>
+{% endblock %}
