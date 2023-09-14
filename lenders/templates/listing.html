@@ -4,7 +4,7 @@
 </p>
 <section class="row container bg-white shadow-3 m-t-2 p1">
     <form method="get" class="form django-form">
-        {{ filter.form }}
+        {{ filter.form.as_p }}
         <button type="submit">Refresh</button>
         <br/>
     </form>
@@ -21,13 +21,11 @@
     </tr>
     {% for lender in paginator_filter %}
     <tr>
-            <td><p><a href="{% url 'posting' %}{{ lender.id }}">{{ lender.id }},</a></p></td>
-            <td>{{ lender.name }},</td>
-            <td>{{ lender.code }},</td>
-            <td>{{ lender.upfront_com }},</td>
-            <td>{{ lender.trial_com }},</td>
-            <td>{{ lender.active }},</td>
-
+        <td><a href="update/{{ lender.id }}">{{ lender.name }},</a></td>
+        <td><a href="update/{{ lender.id }}">{{ lender.code }},</a></td>
+        <td><a href="update/{{ lender.id }}">{{ lender.upfront_com }},</a></td>
+        <td><a href="update/{{ lender.id }}">{{ lender.trial_com }},</a></td>
+        <td><a href="update/{{ lender.id }}">{{ lender.active }},</a></td>
     </tr>
     {% endfor %}
 </table>

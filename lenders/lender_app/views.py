@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from rest_framework.decorators import api_view
@@ -9,7 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework_json_api import views
 
-from .forms import CreateLenderForm
+from .forms import CreateLenderForm, UpdateLenderForm
 from .serializers import LenderSerializer
 from .models import Lender
 from .filters import *
@@ -39,8 +39,10 @@ def add_lender(request):
             serializer.save()
 
     else:
-        form = CreateLenderForm()
-    return render(request, 'add_lender.html', {'form': form})
+        context = {
+            {'form': CreateLenderForm()}
+        }
+    return render(request, 'add_lender.html', context)
 
 
 def list_lenders(request):
@@ -60,6 +62,7 @@ def list_lenders(request):
         print('Get')
         return render(request, 'listing.html', context)
 
+
 def search_lenders(request):
     lender_list = Lender.objects.all().order_by('code')
     lender_filter = SearchLenderFilter(request.GET, queryset=lender_list)
@@ -78,35 +81,29 @@ def search_lenders(request):
         return render(request, 'listing.html', context)
 
 
-def edit_lender(request, pk=0):
-    pass
+def update_lender(request, id=1):
+    if request.method == 'POST':
+        serializer = LenderSerializer(instance=Lender.objects.get(id=id),
+                                      data=request.POST)
+        if serializer.is_valid():
+            serializer.save()
 
-@api_view(['GET'])
-def api_root(request, format=None):
-    # Create a paginator instance
-    paginator = PageNumberPagination()
-    # Set the page size to 5
-    paginator.page_size = 5
-    paginator.max_page_size = 5
-    # Set the page query parameter to 'p'
-    paginator.page_query_param = 'p'
-    # Get the list of available endpoints
-    endpoints = [
-        ('posts', reverse('post-list', request=request, format=format)),
-    ]
-    # Paginate the endpoints list
-    page = paginator.paginate_queryset(Lender.objects.all(), request)
-    # Return the paginated response
-    return paginator.get_paginated_response(page)
+        return redirect("list")
+    else:
+        context = {
+            'form': UpdateLenderForm(id=id),
+            'lender': Lender.objects.get(id=id)
+        }
+        return render(request, 'update_lender.html', context)
 
-class PostList(generics.ListCreateAPIView):
-    queryset = Lender.objects.all()
-    serializer_class = LenderSerializer
 
-class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Lender.objects.all()
-    serializer_class = LenderSerializer
+def delete_lender(request, id=1):
+    if request.method == 'POST':
+        Lender.objects.get(id=id).delete()
 
-class PostViewSet(views.ModelViewSet):
-    queryset = Lender.objects.all()
-    serializer_class = LenderSerializer
+        return redirect("list")
+    else:
+        context = {
+            'lender': Lender.objects.get(id=id)
+        }
+        return render(request, 'confirm.html', context)

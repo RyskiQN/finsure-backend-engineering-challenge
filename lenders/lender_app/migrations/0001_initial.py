@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255, verbose_name='Name')),
-                ('code', models.TextField(max_length=3, unique=True, verbose_name='Code')),
+                ('code', models.TextField(max_length=3, verbose_name='Code')),
                 ('upfront_com', models.FloatField(verbose_name='Upfront Commission Rate')),
                 ('trial_com', models.FloatField(verbose_name='Trial Commission Rate')),
                 ('active', models.BooleanField(default=False, verbose_name='Active')),

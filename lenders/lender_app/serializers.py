@@ -6,4 +6,4 @@ class LenderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lender
         fields = ('name', 'code', 'upfront_com',
-                'trial_com', 'active')
+                  'trial_com', 'active')

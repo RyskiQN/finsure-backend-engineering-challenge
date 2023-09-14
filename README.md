@@ -17,14 +17,14 @@ administrators to manage all the lenders in the system.
 Create a RESTful API using Django. The API should be backed by a MariaDB
 database, conform to the JSON:API specification and should implement
 endpoints that provide the following functionality:
-1. Create a new Lender
-2. List all Lenders (five per page)
-1. List active lenders
-3. Get a specific Lender
-4. Update a specific Lender
-5. Delete a specific Lender
-6. Bulk upload Lenders in CSV format
-7. Download Lenders in CSV format
+- [X] Create a new Lender
+- [X] List all Lenders (five per page)
+  - [X] List active lender
+- [X] Get a specific Lender
+- [X] Update a specific Lender
+- [X] Delete a specific Lender
+- [ ] Bulk upload Lenders in CSV format
+- [ ] Download Lenders in CSV format
 
 # Additional Info
 Below are the attributes of a control. All attributes are required.

@@ -4,11 +4,9 @@ from . import views
 urlpatterns = [
     path('get_data/', views.getData),
     path('post_data/', views.postData),
-    path('create', views.add_lender),
-    path('list', views.list_lenders),
-    path('search', views.search_lenders),
-    path('', views.api_root),
-    path('posting/<int:pk>', views.edit_lender, name='posting'),
-    path('post_list/', views.PostList.as_view(), name='post-list'),
-    path('posts/<int:pk>/', views.PostDetail.as_view(), name='post-detail'),
+    path('create', views.add_lender, name='create'),
+    path('list', views.list_lenders, name='list'),
+    path('search', views.search_lenders, name='search'),
+    path('update/<int:id>', views.update_lender, name='update'),
+    path('update/delete/<int:id>', views.delete_lender, name='delete'),
 ]
