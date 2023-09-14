@@ -6,8 +6,6 @@ don't want you to do a lot, but what you do should be your best work.
 The Objective
 - Read and understand the Challenge
 - Create solutions that satisfy the requirements
-- Send a link to the Git repository containing your solution to:
-kevin.nguyen@finsure.com.au
 
 # Background
 The first feature in the sprint is to create an API that allows
