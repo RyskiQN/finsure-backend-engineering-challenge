@@ -45,7 +45,9 @@ def create_lender(request):
             except Exception as e:
                 messages.error(request, f"Lender Creation Failed!\n" +
                                f"{e}")
-
+            else:
+                messages.error(request, f"Lender Creation Successful!")
+                return redirect("list")
     else:
         form = CreateLenderForm()
     return render(request, 'create_lender.html', {'form': form})
@@ -61,7 +63,8 @@ def list_lenders(request):
 
     context = {
         'filter': lender_filter,
-        'paginator_filter': paged_listings
+        'paginator_filter': paged_listings,
+        'state': 'list'
     }
 
     if request.method == 'GET':
@@ -79,7 +82,8 @@ def search_lenders(request):
 
     context = {
         'filter': lender_filter,
-        'paginator_filter': paged_listings
+        'paginator_filter': paged_listings,
+        'state': 'search'
     }
 
     if request.method == 'GET':

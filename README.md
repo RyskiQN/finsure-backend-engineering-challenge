@@ -34,3 +34,9 @@ Below are the attributes of a control. All attributes are required.
 |Upfront Commission Rate | A percentage describing the amount of commission taken per Loan |
 |Trial Commission Rate   | A percentage describing the amount of commission taken per Loan |
 |active                  | A flag to determine if this Lender is active in the system      |
+
+# Setup
+Restore database with the following command 
+        
+    cd <./lenders directory>
+    mysql --user=root --password=password < db_backup.sql

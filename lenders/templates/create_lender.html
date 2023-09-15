@@ -9,5 +9,12 @@
         <button type="submit">Add</button><a href="{% url 'list' %}"> Cancel </a>
     </p>
     <p><a href="{% url 'upload' %}"> Upload CSV File </a></p>
+    <!-- Error Reporting -->
+    {% if messages %}
+    <ul class=“messages”> {% for message in messages %}
+        <li {% if message.tags %} class=“{{ message.tags }}” {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </form>
 {% endblock %}

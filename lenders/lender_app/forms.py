@@ -13,7 +13,7 @@ class CreateLenderForm(forms.ModelForm):
     code = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'ID'}), max_length=3)
     upfront_com = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder': '%'}))
     trial_com = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder': '%'}))
-    active = forms.BooleanField(widget=forms.CheckboxInput())
+    active = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
     helper = helper.FormHelper
 
 
@@ -31,9 +31,9 @@ class UpdateLenderForm(forms.ModelForm):
         # Customize the form fields as you wish
         self.fields['name'].widget = forms.TextInput(attrs={'placeholder': instance.name})
         self.fields['code'].widget = forms.TextInput(attrs={'placeholder': instance.code, 'max_length': 3})
-        self.fields['upfront_com'].widget = forms.NumberInput(attrs={'placeholder': instance.upfront_com})
-        self.fields['trial_com'].widget = forms.NumberInput(attrs={'placeholder': instance.trial_com})
-        self.fields['active'].widget = forms.CheckboxInput(attrs={'default': instance.active if instance else ''})
+        self.fields['upfront_com'] = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder': instance.upfront_com}))
+        self.fields['trial_com'] = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder': instance.trial_com}))
+        self.fields['active'].widget = forms.CheckboxInput(attrs={'default': instance.active})
 
     helper = helper.FormHelper
 
