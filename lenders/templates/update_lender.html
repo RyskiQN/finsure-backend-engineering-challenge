@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="{% url 'list' %}"> Back </a>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <p>
-        <button type="submit">Update</button>
+        <button type="submit">Update</button> &nbsp
+        <a href="{% url 'list' %}"> Cancel </a>
     </p>
     <p><a href="delete/{{ lender.id }}" style="color:#FF0000"> Delete? </a></p>
     <!-- Error Reporting -->
