@@ -48,3 +48,5 @@ Restore database with the following command
     ".venv/Scripts/activate" (source .venv/bin/activate for Linux)
     pip install -r requirements.txt
     python manage.py runserver
+
+  main lenders app exists at url '/lenders'
